@@ -24,11 +24,11 @@
 
 .body-wrapper{ margin-top: 5.5em; }
 
-body{
-	font-family: 'Source Sans Pro', sans-serif;
+html, body{
+	min-height: 100%;
 }
 
-.nav{ font-size:18px; }
+.nav{ font-size:18px; font-family: 'Source Sans Pro', sans-serif;}
 
 .menu-spacer{ background-color: #fff; width: 200px; height: 3.6em;}
 

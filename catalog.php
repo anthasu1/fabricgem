@@ -15,8 +15,6 @@
 
 <link rel="stylesheet" href="css/styles.css">
 
-<script src="js/menu.js"></script>
-
 <?php include 'includes/db_connect.php'; ?>
 
 </head>
@@ -26,7 +24,7 @@
 <div class="custom-wrapper pure-g" id="menu">
     <div class="pure-u-1 pure-u-md-1-3">
         <div class="pure-menu">
-            <div class="menu-spacer"></div>
+            <div class="menu-spacer">FABRIC GEM</div>
             <a class="custom-toggle" id="toggle"><img src="img/ham.png" width="30"></a>
         </div>
     </div>
@@ -43,7 +41,12 @@
     <div class="pure-u-1 pure-u-md-1-3">
         <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform nav">
             <ul class="pure-menu-list">
-                <li class="pure-menu-item" id="search"><input><button>Search</button></li>
+                <li class="pure-menu-item" id="search">
+                	<form action="search.php" method="GET">
+                		<input type="text" name="query" />
+    					<input type="submit" value="Search" />
+					</form>
+                </li>
                 <li class="pure-menu-item" id="cart-image"><a href="cart.html" class="pure-menu-link"><img src="img/cart_icon_large.png" width="32" height="32"></a></li>
                 <li class="pure-menu-item" id="cart-text"><a href="cart.html" class="pure-menu-link">Cart</a></li>
                 
@@ -59,7 +62,7 @@
 </div>
 
 <div class="pure-g footer">
-	
+    
     <div class="pure-u-1 social">
         <a href="https://www.facebook.com"><img src="img/social_media _fb.png" alt="facebook icon"/></a>
         <a href="https://www.Twitter.com"><img src="img/social_media_twitter.png" alt="twitter icon"/></a>
@@ -72,46 +75,7 @@
     </div>
 </div>
     
-<script>
-(function (window, document) {
-var menu = document.getElementById('menu'),
-    WINDOW_CHANGE_EVENT = ('onorientationchange' in window) ? 'orientationchange':'resize';
+<script src="js/menu-scrolly.js"></script>
 
-function toggleHorizontal() {
-    [].forEach.call(
-        document.getElementById('menu').querySelectorAll('.custom-can-transform'),
-        function(el){
-            el.classList.toggle('pure-menu-horizontal');
-        }
-    );
-};
-
-function toggleMenu() {
-    // set timeout so that the panel has a chance to roll up
-    // before the menu switches states
-    if (menu.classList.contains('open')) {
-        setTimeout(toggleHorizontal, 500);
-    }
-    else {
-        toggleHorizontal();
-    }
-    menu.classList.toggle('open');
-    document.getElementById('toggle').classList.toggle('x');
-};
-
-function closeMenu() {
-    if (menu.classList.contains('open')) {
-        toggleMenu();
-    }
-}
-
-document.getElementById('toggle').addEventListener('click', function (e) {
-    toggleMenu();
-});
-
-window.addEventListener(WINDOW_CHANGE_EVENT, closeMenu);
-})(this, this.document);
-
-</script>
 </body>
 </html>

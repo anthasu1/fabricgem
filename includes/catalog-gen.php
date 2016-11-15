@@ -1,7 +1,7 @@
 <!-- Display Catalog -->
 
 <?php
-	$results_per_page = 30; // number of results per page
+	$results_per_page = 28; // number of results per page
 
 	
 	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };
@@ -31,18 +31,20 @@
 	?> 
     
     
-    <div class="product-item pure-u-1-3">
+    <div class="product-item pure-u-1-2 pure-u-md-1-4">
         <form method="post" action="catalog.php?action=add&code=<?php echo $row["sku"]; ?>">
         
-        <!--<div class="product-image"><img src="<?php /*echo $row["image"]; */?>"></div>-->
-        
-        <div class="product-image"><img src="https://placekitten.com/100/100"></div>
-        
+        <div class="product-image"><img src="<?php echo $row["img"]; ?>" height="150" width="150"></div>
+                
         <div><strong><?php echo $row["name"]; ?></strong></div>
         
-        <div class="product-price"><?php echo "$".$row["price"]; ?></div>
+        <div class="product-price"><?php echo "$".$row["price"]."/yard"; ?></div>
         
-        <div class="product-stock"><?php echo "Currently in stock: ".$row["stock"]; ?></div>
+        <div class="product-stock"><?php echo "Currently in stock: ".$row["yards"] ." yards"; ?></div>
+        
+        <input type="hidden" id="<?php echo "item".$row["sku"]."name";?>" value="<?php echo $row["name"];?>">
+    	
+        <input type="hidden" id="<?php echo "item".$row["sku"]."price";?>" value="<?php echo $row["price"];?>">
         
         <div><input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" /></div>
         </form>
@@ -50,7 +52,7 @@
 			
 	<?php 
 	
-	if($count==3){
+	if($count==4){
 		?>
 		</div>
         <!-- End Row Div -->
