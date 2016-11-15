@@ -125,8 +125,7 @@ page-container{ position: relative;
 .team-box ul{ width: 50%; 
 			  margin: 0 auto; }
 
-.footer{ height: 100px;
-		 text-align: center; 
+.footer{ text-align: center; 
 		 padding-top: 20px; 
 		 background-color: #52656b;
 		 color: #FFFFFF;
