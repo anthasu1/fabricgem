@@ -24,6 +24,10 @@
 
 .body-wrapper{ margin-top: 5.5em; }
 
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
 .nav{ font-size:18px; }
 
 .menu-spacer{ background-color: #fff; width: 200px; height: 3.6em;}
@@ -51,14 +55,14 @@
 .custom-brand{ display: flex; 
 			   align-items: center; 
 			   font-size: 28px; 
-			   color:#DC2C7A;
+			   color:#ff018a; 
 			   padding-left: 15px;}
 
 .custom-brand img{ }
 
 .nav a{ color: #000000; }
 
-.nav a:hover{ color:#DC2C7A; 
+.nav a:hover{ color:#ff018a; 
 			  background-color: #ffffff;}
 			  
 .hero-container{ margin-top: 3.6em }
@@ -121,7 +125,11 @@
 		 display: block; 
 		 padding-top: 20px; 
 		 background-color: #52656b;
-		 padding-bottom: 10px;}
+		 color: #FFFFFF;
+		 padding-bottom: 10px;
+		 font-family: 'Roboto', sans-serif;
+		 }
+		 
 		 
 .social{ padding-bottom: 10px; }
 

@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
 
+<link href="https://fonts.googleapis.com/css?family=Roboto:300|Source+Sans+Pro" rel="stylesheet">
+
 <link rel="stylesheet" href="css/styles.css">
 
 <script src="js/menu.js"></script>
@@ -42,7 +44,7 @@
         <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform nav">
             <ul class="pure-menu-list">
                 <li class="pure-menu-item" id="search"><input><button>Search</button></li>
-                <li class="pure-menu-item" id="cart-image"><a href="cart.html" class="pure-menu-link"><img src="img/cart.png" width="32" height="32"></a></li>
+                <li class="pure-menu-item" id="cart-image"><a href="cart.html" class="pure-menu-link"><img src="img/cart_icon_large.png" width="32" height="32"></a></li>
                 <li class="pure-menu-item" id="cart-text"><a href="cart.html" class="pure-menu-link">Cart</a></li>
                 
             </ul>
@@ -59,14 +61,14 @@
 <div class="pure-g footer">
 	
     <div class="pure-u-1 social">
-        <img src="https://placekitten.com/60/60">
-        <img src="https://placekitten.com/60/60">
-        <img src="https://placekitten.com/60/60">
-        <img src="https://placekitten.com/60/60">
-    </div>
+        <a href="https://www.facebook.com"><img src="img/social_media _fb.png" alt="facebook icon"/></a>
+        <a href="https://www.Twitter.com"><img src="img/social_media_twitter.png" alt="twitter icon"/></a>
+        <a href="https://www.google.com"><img src="img/social_media_google.png" alt="google icon"/></a>
+        <a href="https://www.pinterest.com"><img src="img/social_media_pinterest.png" alt="pinterest icon"/></a>
+     </div>
 	
     <div class="pure-u-1 disclaimer">
-		<p>Site Design © Team FabricGem 2016. | This site was created for a class at UCF and is for educational purposes only. It does not actually sell anything.</p>
+		<p>Site Design © Team FabricGem 2016. | This site was created for a class at UCF and is for educational purposes only. It does not actually sell anything.</p><br>
     </div>
 </div>
     
