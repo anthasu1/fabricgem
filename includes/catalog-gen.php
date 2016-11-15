@@ -85,7 +85,7 @@
 	?>
     <?php
 	
-	mysql_close($conn);
+	$conn->close;
 
 ?>
 

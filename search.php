@@ -4,40 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Fabric Gem</title>
+
+<link rel="stylesheet" href="css/html5reset.css">
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300|Source+Sans+Pro" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+
 <?php include 'includes/db_connect.php'; ?>
 
 </head>
 
-
 <body>
 
-<?php
-
-    $query = $_GET['query']; 
-    // gets value sent over search form
-     	 
-    $min_length = 3;
-    // you can set minimum length of the query if you want
-     
-    if(strlen($query) >= $min_length){ // if query length is more or equal minimum length then
+<div class="page-container">
+    <div class="custom-wrapper pure-g" id="menu">
+        <div class="pure-u-1 pure-u-md-1-3">
+            <div class="pure-menu">
+                <div class="menu-spacer">FABRIC GEM</div>
+                <a class="custom-toggle" id="toggle"><img src="img/ham.png" width="30"></a>
+            </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-3">
+            <div class="pure-menu pure-menu-horizontal custom-can-transform nav">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="home.php" class="pure-menu-link">Home</a></li>
+                    <li class="pure-menu-item"><a href="catalog.php" class="pure-menu-link">Catalog</a></li>
+                    <li class="pure-menu-item"><a href="aboutus.php" class="pure-menu-link">About Us</a></li>
+                    <li class="pure-menu-item"><a href="account.php" class="pure-menu-link">Account</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1-3">
+            <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform nav">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item" id="search">
+                        <form action="search.php" method="GET">
+                            <input type="text" name="query" />
+                            <input type="submit" value="Search" />
+                        </form>
+                    </li>
+                    <li class="pure-menu-item" id="cart-image"><a href="cart.html" class="pure-menu-link"><img src="img/cart_icon_large.png" width="32" height="32"></a></li>
+                    <li class="pure-menu-item" id="cart-text"><a href="cart.html" class="pure-menu-link">Cart</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="body-wrapper">
+    
+    <!-- Start Search Script -->
+    
+    <?php
+    
+        $query = $_GET['query']; 
+             
+        $min_length = 3;
          
-        $query = htmlspecialchars($query); 
-        // changes characters used in html to their equivalents, for example: < to &gt
-		 
-        $sql = "SELECT * FROM products WHERE name LIKE '%".mysql_real_escape_string($query)."%'";
-		
-		echo $query;
-		
-		$result=mysql_query($sql); 
-		
-		while($row=mysql_fetch_array($result)){ 
-	         ?><div><strong><?php echo $row["name"]; ?></strong></div><?php
-		}
-	}
+        if(strlen($query) >= $min_length){ 
+             
+            $query = htmlspecialchars($query); 
+             
+            $sql = "SELECT * FROM products WHERE name LIKE '%".$query."%' ORDER by id";
+                    
+            $s_result=$conn->query($sql);  
+         
+            while($row = $s_result->fetch_assoc()) {
         
-    else{ // if query length is less than minimum
-        echo "Minimum length is ".$min_length;
-    }
-?>
+            $count++;
+                            
+            if($count==1){
+                
+                ?>
+                
+                <!-- Start Group Div -->
+                
+                <div class="pure-g">
+                
+                <?php
+                    
+            }
+        ?> 
+        
+        
+        <div class="product-item pure-u-1-2 pure-u-md-1-4">
+            <form method="post" action="catalog.php?action=add&code=<?php echo $row["sku"]; ?>">
+            
+            <div class="product-image"><img src="<?php echo $row["img"]; ?>" height="150" width="150"></div>
+                    
+            <div><strong><?php echo $row["name"]; ?></strong></div>
+            
+            <div class="product-price"><?php echo "$".$row["price"]."/yard"; ?></div>
+            
+            <div class="product-stock"><?php echo "Currently in stock: ".$row["yards"] ." yards"; ?></div>
+            
+            <input type="hidden" id="<?php echo "item".$row["sku"]."name";?>" value="<?php echo $row["name"];?>">
+            
+            <input type="hidden" id="<?php echo "item".$row["sku"]."price";?>" value="<?php echo $row["price"];?>">
+            
+            <div><input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" /></div>
+            </form>
+        </div>
+                
+        <?php 
+        
+        if($count==4){
+            ?>
+            </div>
+            <!-- End Row Div -->
+            
+            <?php
+            
+            $count=0;
+            
+            }
+        
+        }; 
+            
+            
+        }
+            
+        else{ // if query length is less than minimum
+            echo "Minimum length is ".$min_length;
+        }
+    ?>
+    
+    <!-- End Search Script -->
+    
+    </div>
+    
+    <div class="pure-g footer">
+        
+        <div class="pure-u-1 social">
+            <a href="https://www.facebook.com"><img src="img/social_media _fb.png" alt="facebook icon"/></a>
+            <a href="https://www.Twitter.com"><img src="img/social_media_twitter.png" alt="twitter icon"/></a>
+            <a href="https://www.google.com"><img src="img/social_media_google.png" alt="google icon"/></a>
+            <a href="https://www.pinterest.com"><img src="img/social_media_pinterest.png" alt="pinterest icon"/></a>
+         </div>
+        
+        <div class="pure-u-1 disclaimer">
+            <p>Site Design © Team FabricGem 2016. | This site was created for a class at UCF and is for educational purposes only. It does not actually sell anything.</p><br>
+        </div>
+    </div>
+</div>
+
+<script src="js/menu-scrolly.js"></script>
+
 </body>
 </html>
+
+<style>
+	
+	.pages { text-align: right; 
+			 padding-top: 10px;
+			 padding-bottom: 10px; }
+	
+	.pages a{ padding-right: 20px; }
+	
+	.product-item{ text-align: center; }
+	
+</style>
