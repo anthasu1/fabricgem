@@ -130,14 +130,14 @@
         }
             
         else{ // if query length is less than minimum
-            echo "Minimum length is ".$min_length;
+            echo "Ivalid search. Minimum characters for search is ".$min_length;
         }
     ?>
     
     <!-- End Search Script -->
     
     </div>
-    
+</div> 
     <div class="pure-g footer">
         
         <div class="pure-u-1 social">
@@ -151,7 +151,6 @@
             <p>Site Design © Team FabricGem 2016. | This site was created for a class at UCF and is for educational purposes only. It does not actually sell anything.</p><br>
         </div>
     </div>
-</div>
 
 <script src="js/menu-scrolly.js"></script>
 
