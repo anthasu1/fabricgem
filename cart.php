@@ -58,86 +58,10 @@
     
     <div class="body-wrapper">
     
-    <!-- Start Search Script -->
-    
-    <?php
-    
-        $query = $_GET['query']; 
-             
-        $min_length = 3;
-         
-        if(strlen($query) >= $min_length){ 
-             
-            $query = htmlspecialchars($query); 
-             
-            $sql = "SELECT * FROM products WHERE name LIKE '%".$query."%' ORDER by id";
-                    
-            $s_result=$conn->query($sql);  
-         
-            while($row = $s_result->fetch_assoc()) {
-        
-            $count++;
-                            
-            if($count==1){
-                
-                ?>
-                
-                <!-- Start Group Div -->
-                
-                <div class="pure-g">
-                
-                <?php
-                    
-            }
-        ?> 
-        
-        
-        <div class="product-item pure-u-1-2 pure-u-md-1-4">
-            <form method="post" action="catalog.php?action=add&code=<?php echo $row["sku"]; ?>">
-            
-            <div class="product-image"><img src="<?php echo $row["img"]; ?>" height="150" width="150"></div>
-                    
-            <div><strong><?php echo $row["name"]; ?></strong></div>
-            
-            <div class="product-price"><?php echo "$".$row["price"]."/yard"; ?></div>
-            
-            <div class="product-stock"><?php echo "Currently in stock: ".$row["yards"] ." yards"; ?></div>
-            
-            <input type="hidden" id="<?php echo "item".$row["sku"]."name";?>" value="<?php echo $row["name"];?>">
-            
-            <input type="hidden" id="<?php echo "item".$row["sku"]."price";?>" value="<?php echo $row["price"];?>">
-            
-            <div><input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" /></div>
-            </form>
-        </div>
-                
-        <?php 
-        
-        if($count==4){
-            ?>
-            </div>
-            <!-- End Row Div -->
-            
-            <?php
-            
-            $count=0;
-            
-            }
-        
-        }; 
-            
-            
-        }
-            
-        else{ // if query length is less than minimum
-            echo "Invalid search. Minimum characters for search is ".$min_length;
-        }
-    ?>
-    
-    <!-- End Search Script -->
+    <?php include 'includes/catalog-gen.php'; ?>
     
     </div>
-</div> 
+    
     <div class="pure-g footer">
         
         <div class="pure-u-1 social">
@@ -151,20 +75,9 @@
             <p>Site Design © Team FabricGem 2016. | This site was created for a class at UCF and is for educational purposes only. It does not actually sell anything.</p><br>
         </div>
     </div>
-
+</div> 
+    
 <script src="js/menu-scrolly.js"></script>
 
 </body>
 </html>
-
-<style>
-	
-	.pages { text-align: right; 
-			 padding-top: 10px;
-			 padding-bottom: 10px; }
-	
-	.pages a{ padding-right: 20px; }
-	
-	.product-item{ text-align: center; }
-	
-</style>
