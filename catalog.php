@@ -2,98 +2,114 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Fabric Gem Catalog - Summer Brooker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- link stylesheets -->
-    <link href="css/reset.css" rel="stylesheet" type="text/css">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <!--link fonts -->
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Slabo+27px|Source+Sans+Pro:300,400" rel="stylesheet">
+<title>Fabric Gem</title>
+
+<link rel="stylesheet" href="css/html5reset.css">
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+<link rel="stylesheet" href="css/styles.css">
+
+<script src="js/menu.js"></script>
+
+<?php include 'includes/db_connect.php'; ?>
+
 </head>
-<body>
-    <div class="section group_header">
-        <div class="col span_1_of_2">
-        	<a href="home.php"><img src="img/fabricgem_logo_small.png" class="logo" alt=""/></a>
-        </div>
-        <div class="col span_1_of_2">
-        	<div id="navbar">
-              
-              <ul id="topnav">
-                  <li><a href="home.php">Home</a></li>
-                  <li><a href="catalog.php">Catalog</a></li>
-                  <li><a href="client.php">Client</a></li>
-                  <li><a href="admin.php">Admin</a></li>
-                  <li></li>
-                  <input type="text" name="search" placeholder="search">  <input type="submit" value=" > ">
-                  <li></li>
-                  <a href="cart.php"><img src="img/cart_icon_small.png" alt=""/></a>
-              </ul>
-           </div>
-      </div>
-     </div>
-     
-      <div class="section group_hr">
-     	<div class="col span_2_of_2">
-        	<hr>
-        </div>
-     </div>
-     
-      <div class="section group_maincontent1">
-     	<div class="col span_1_of_2">
-        	<div class="main">
-           		<img src="img/catalog1.png" class="pad" alt=""/> <img src="img/catalog3.png" class="pad" alt=""/>
-                <p class="pad2">Chevron Georgette ★★★★☆</p> 
-                <p class="pad2">Plum Silky ★★★★★</p> 
-                
-             </div>
-        </div>
-        <div class="col span_1_of_2">
-        	<div class="main">
-                <img src="img/catalog2.png" class="pad" alt=""/>
-            	<img src="img/catalog4.png" class="pad" alt=""/> 
-                <p class="pad2">Diamond Sunshine ★★★★☆</p>
-                <p class="pad2">Coral Reef ★★★☆☆</p>
-            </div>
-        </div>
-     </div>
-     
-      <div class="section group_maincontent2">
-     	<div class="col span_1_of_2">
-        	<div class="main">
-           		<img src="img/catalog5.png" class="pad" alt=""/> <img src="img/catalog6.png" class="pad" alt=""/>
-                <p class="pad2">Aurora Abstract ★★★☆☆</p>
-                <p class="pad2">Mixed Berries ★★★★☆</p>
-             </div>
-        </div>
-        <div class="col span_1_of_2">
-        	<div class="main">
-                <img src="img/catalog8.png" class="pad" alt=""/> 
-            	<img src="img/catalog7.png" class="pad" alt=""/> 
-                <p class="pad2">Diamond Peach ★★★★☆</p>
-                <p class="pad2">Tropical Blue ★★★★☆</p>
-            </div>
-        </div>
-     </div>
-     
-     
-     <div class="section group_footer">
-     	<div class="col span_2_of_2">
-        	<div id="footer">
-            <ul>
-             <li><a href="home.php" class="footer_a">Home</a></li>
-              <li><a href="catalog.php" class="footer_a">Catalog</a></li>
-              <li><a href="client.php" class="footer_a">Client</a></li>
-              <li><a href="admin.php" class="footer_a">Admin</a></li>
-              <li><a href="cart.php" class="footer_a">Cart</a></li>
-              <li><a href="fulfillment.php" class="footer_a">Fulfillment</a></li>
-             </ul>
-             
-             <img src="img/social_media.png" class="center" alt=""/> <br>
-            
-            <h3>Site Design © Summer Brooker 2016. | This site was created for a class at UCF and is for educational purposes only. It does not actually sell anything.</h3>
-            </div>
-        </div>
-     </div>
 
+<body>
+
+<div class="custom-wrapper pure-g" id="menu">
+    <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-menu">
+            <div class="menu-spacer"></div>
+            <a class="custom-toggle" id="toggle"><img src="img/ham.png" width="30"></a>
+        </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-menu pure-menu-horizontal custom-can-transform nav">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="home.php" class="pure-menu-link">Home</a></li>
+                <li class="pure-menu-item"><a href="catalog.php" class="pure-menu-link">Catalog</a></li>
+                <li class="pure-menu-item"><a href="aboutus.php" class="pure-menu-link">About Us</a></li>
+				<li class="pure-menu-item"><a href="account.php" class="pure-menu-link">Account</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform nav">
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item" id="search"><input><button>Search</button></li>
+                <li class="pure-menu-item" id="cart-image"><a href="cart.html" class="pure-menu-link"><img src="img/cart.png" width="32" height="32"></a></li>
+                <li class="pure-menu-item" id="cart-text"><a href="cart.html" class="pure-menu-link">Cart</a></li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="body-wrapper">
+
+<?php include 'includes/catalog-gen.php'; ?>
+
+</div>
+
+<div class="pure-g footer">
+	
+    <div class="pure-u-1 social">
+        <img src="https://placekitten.com/60/60">
+        <img src="https://placekitten.com/60/60">
+        <img src="https://placekitten.com/60/60">
+        <img src="https://placekitten.com/60/60">
+    </div>
+	
+    <div class="pure-u-1 disclaimer">
+		<p>Site Design © Team FabricGem 2016. | This site was created for a class at UCF and is for educational purposes only. It does not actually sell anything.</p>
+    </div>
+</div>
+    
+<script>
+(function (window, document) {
+var menu = document.getElementById('menu'),
+    WINDOW_CHANGE_EVENT = ('onorientationchange' in window) ? 'orientationchange':'resize';
+
+function toggleHorizontal() {
+    [].forEach.call(
+        document.getElementById('menu').querySelectorAll('.custom-can-transform'),
+        function(el){
+            el.classList.toggle('pure-menu-horizontal');
+        }
+    );
+};
+
+function toggleMenu() {
+    // set timeout so that the panel has a chance to roll up
+    // before the menu switches states
+    if (menu.classList.contains('open')) {
+        setTimeout(toggleHorizontal, 500);
+    }
+    else {
+        toggleHorizontal();
+    }
+    menu.classList.toggle('open');
+    document.getElementById('toggle').classList.toggle('x');
+};
+
+function closeMenu() {
+    if (menu.classList.contains('open')) {
+        toggleMenu();
+    }
+}
+
+document.getElementById('toggle').addEventListener('click', function (e) {
+    toggleMenu();
+});
+
+window.addEventListener(WINDOW_CHANGE_EVENT, closeMenu);
+})(this, this.document);
+
+</script>
 </body>
 </html>
