@@ -164,6 +164,10 @@ h3{
     margin-right: auto;
 }
 
+.registration{
+	padding: 5%;
+}
+
 #cart-text{ display: none; }
 
 @media (max-width: 65em) {
