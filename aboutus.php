@@ -23,7 +23,7 @@
 
 <div class="page-container">
     <div class="custom-wrapper pure-g" id="menu">
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu">
                 <div class="menu-spacer">
                 	<a href="home.php"><img src="img/fabricgem_logo1.png" alt="Fabric Gem" width="250"/></a>
@@ -31,7 +31,7 @@
                 <a class="custom-toggle" id="toggle"><img src="img/ham.png" width="30"></a>
             </div>
         </div>
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu pure-menu-horizontal custom-can-transform nav">
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item"><a href="home.php" class="pure-menu-link">Home</a></li>
@@ -41,7 +41,7 @@
                 </ul>
             </div>
         </div>
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform nav">
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item" id="search">
@@ -52,6 +52,7 @@
                     </li>
                     <li class="pure-menu-item" id="cart-image"><a href="cart.php" class="pure-menu-link"><img src="img/cart_icon_large.png" width="32" height="32"></a></li>
                     <li class="pure-menu-item" id="cart-text"><a href="cart.php" class="pure-menu-link">Cart</a></li>
+
                     
                 </ul>
             </div>

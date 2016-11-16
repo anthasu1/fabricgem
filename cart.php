@@ -23,7 +23,7 @@
 
 <div class="page-container">
     <div class="custom-wrapper pure-g" id="menu">
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu">
                 <div class="menu-spacer">
                 	<a href="home.php"><img src="img/fabricgem_logo1.png" alt="Fabric Gem" width="250"/></a>
@@ -31,7 +31,7 @@
                 <a class="custom-toggle" id="toggle"><img src="img/ham.png" width="30"></a>
             </div>
         </div>
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu pure-menu-horizontal custom-can-transform nav">
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item"><a href="home.php" class="pure-menu-link">Home</a></li>
@@ -41,7 +41,7 @@
                 </ul>
             </div>
         </div>
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform nav">
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item" id="search">
@@ -61,24 +61,54 @@
     
     <div class="body-wrapper">
     
-    <?php 
-	foreach($_SESSION['cartarray'] as $key=>$value)
-    {
-    // and print out the values
-	
-    	echo $value -> name;
-		echo $value -> price;
-		echo $value -> qty;
-		echo '<br>';
-    }
-	?>
+    <table class="cart-table" cellpadding="6" cellspacing="0">
     
-    <form method="post" action="cartclear.php">
-    <input type="submit" value="Clear Cart" class="btnClear" />
-    </form>
-
+    	<tr>
+    	       <th>Name</th>
+		       <th>Price</th>
+		       <th>Quantity</th>
+ 		       <th>Total</th>              
+		</tr>
+    
+    <?php 
+	
+	$total = 0;
+	
+	foreach($_SESSION['cartarray'] as $key=>$value)
+    {	
+			
+		$price_total = (($value -> price)*($value -> qty));
+		?>
+        	<tr>
+    	       <td><?php echo $value -> name; ?></td>
+		       <td><?php echo $value -> price; ?></td>
+		       <td><?php echo $value -> qty; ?></td>
+               <td><?php echo $price_total; ?> </td>
+		    </tr>
+        
+    <?php 
+	$total += $price_total;
+	
+	$_SESSION['final_total'] = $total;
+	
+	}?>
+           
+    </table>
+    
+    <div class="cart-buttons">
+    	<h3>Your cart's total is: $<?php echo $total; ?></h3>
+    
+        <form class method="post" action="cartclear.php">
+        <input type="submit" value="Clear Cart" class="btnClear" />
+        </form>
+        
+        <form class method="post" action="checkoutcart.php">
+        <input type="submit" value="Checkout" class="btnCheckout" />
+        </form>
+    </div>
     
     </div>
+
     
     <div class="pure-g footer">
         

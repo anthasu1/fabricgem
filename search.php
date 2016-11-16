@@ -23,13 +23,15 @@
 
 <div class="page-container">
     <div class="custom-wrapper pure-g" id="menu">
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu">
-                <div class="menu-spacer">FABRIC GEM</div>
+                <div class="menu-spacer">
+                	<a href="home.php"><img src="img/fabricgem_logo1.png" alt="Fabric Gem" width="250"/></a>
+                </div>
                 <a class="custom-toggle" id="toggle"><img src="img/ham.png" width="30"></a>
             </div>
         </div>
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu pure-menu-horizontal custom-can-transform nav">
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item"><a href="home.php" class="pure-menu-link">Home</a></li>
@@ -39,7 +41,7 @@
                 </ul>
             </div>
         </div>
-        <div class="pure-u-1 pure-u-md-1-3">
+        <div class="pure-u-1 pure-u-lg-1-3">
             <div class="pure-menu pure-menu-horizontal custom-menu-3 custom-can-transform nav">
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item" id="search">
@@ -50,6 +52,7 @@
                     </li>
                     <li class="pure-menu-item" id="cart-image"><a href="cart.php" class="pure-menu-link"><img src="img/cart_icon_large.png" width="32" height="32"></a></li>
                     <li class="pure-menu-item" id="cart-text"><a href="cart.php" class="pure-menu-link">Cart</a></li>
+
                     
                 </ul>
             </div>
@@ -93,8 +96,8 @@
         
         
         <div class="product-item pure-u-1-2 pure-u-md-1-4">
-            <form method="post" action="catalog.php?action=add&sku=<?php echo $row["sku"]; ?>">
-            
+            <form method="post" action="cartupdate.php">
+        
             <div class="product-image"><img src="<?php echo $row["img"]; ?>" height="150" width="150"></div>
                     
             <div><strong><?php echo $row["name"]; ?></strong></div>
@@ -103,11 +106,13 @@
             
             <div class="product-stock"><?php echo "Currently in stock: ".$row["yards"] ." yards"; ?></div>
             
-            <input type="hidden" id="<?php echo "item".$row["sku"]."name";?>" value="<?php echo $row["name"];?>">
+            <input type="hidden" name="type" value="add" >
             
-            <input type="hidden" id="<?php echo "item".$row["sku"]."price";?>" value="<?php echo $row["price"];?>">
-            
-            <div><input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" /></div>
+            <input type="hidden" name="sku" id="<?php echo "item".$row["sku"]."sku";?>" value="<?php echo $row["sku"];?>">
+            <input type="hidden" name="name" id="<?php echo "item".$row["name"]."sku";?>" value="<?php echo $row["name"];?>">    	        
+            <input type="hidden" name="price" id="<?php echo "item".$row["price"]."sku";?>" value="<?php echo $row["price"];?>">    	        
+                    
+            <div><input type="text" name="qty" value="0" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
             </form>
         </div>
                 

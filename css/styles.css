@@ -31,7 +31,7 @@ page-container{ position: relative;
 	width: 100%;
 }
 
-.body-wrapper{ padding-top: 5.5em; min-height: 100%;}
+.body-wrapper{ padding-top: 5.5em; min-height: 100%; width: 100%;}
 
 .nav{ font-size:18px; font-family: 'Source Sans Pro', sans-serif;}
 
@@ -190,10 +190,13 @@ h3{
 
 #cart-text{ display: none; }
 
-@media (max-width: 65em) {
-}
+tr{ text-align: left; }
 
-@media (max-width: 47.999em) {
+.cart-table{ width: 80%; margin: 0 auto; margin-top: 20px; margin-bottom: 20px;}
+
+.cart-buttons{ width: 60%; margin: 0 auto; text-align: center;}
+
+@media (max-width: 65em) {
 
 	.nav{ text-align: center;}
 	
