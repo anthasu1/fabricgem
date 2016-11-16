@@ -48,8 +48,8 @@
                             <input type="submit" value="Search" />
                         </form>
                     </li>
-                    <li class="pure-menu-item" id="cart-image"><a href="cart.html" class="pure-menu-link"><img src="img/cart_icon_large.png" width="32" height="32"></a></li>
-                    <li class="pure-menu-item" id="cart-text"><a href="cart.html" class="pure-menu-link">Cart</a></li>
+                    <li class="pure-menu-item" id="cart-image"><a href="cart.php" class="pure-menu-link"><img src="img/cart_icon_large.png" width="32" height="32"></a></li>
+                    <li class="pure-menu-item" id="cart-text"><a href="cart.php" class="pure-menu-link">Cart</a></li>
                     
                 </ul>
             </div>
