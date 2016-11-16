@@ -142,6 +142,7 @@ page-container{ position: relative;
 	padding-right: 3%;
 	text-align: center;
 	font-family: 'Source Sans Pro', sans-serif;
+	
 }
 
 .team_photos{
@@ -151,6 +152,7 @@ page-container{ position: relative;
 .team_bios{
 	margin-left: 10%;
 	font-family: 'Source Sans Pro', sans-serif;
+	
 }
 
 h3{
@@ -160,12 +162,30 @@ h3{
 .home_content{
 	padding: 5%;
 	display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: -15%;
+	
 }
 
 .registration{
 	padding: 5%;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.pol_content{
+	text-align: center;
+	margin-top: -5%;
+	padding: 10%;
+	font-family: 'Source Sans Pro', sans-serif;
+	
+}
+
+.footer_link{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.nav a:hover{
+	color:#ff018a; 
 }
 
 #cart-text{ display: none; }

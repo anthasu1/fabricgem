@@ -74,6 +74,8 @@
          </div>
         
         <div class="pure-u-1 disclaimer">
+        	<a href="policies.php" class="footer_link">Company Policies</a><br><br>
+        	
             <p>Site Design © Team FabricGem 2016. | This site was created for a class at UCF and is for educational purposes only. It does not actually sell anything.</p><br>
         </div>
     </div>
