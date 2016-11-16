@@ -25,7 +25,8 @@
     <div class="custom-wrapper pure-g" id="menu">
         <div class="pure-u-1 pure-u-md-1-3">
             <div class="pure-menu">
-                <div class="menu-spacer">FABRIC GEM</div>
+                <div class="menu-spacer">
+           	    <a href="home.php"><img src="img/fabricgem_logo1.png" alt="Fabric Gem" width="250"/></a> </div>
                 <a class="custom-toggle" id="toggle"><img src="img/ham.png" width="30"></a>
             </div>
         </div>

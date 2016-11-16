@@ -136,6 +136,34 @@ page-container{ position: relative;
 		 
 .social{ padding-bottom: 10px; }
 
+.about_intro{
+	margin: 3%;
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: center;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.team_photos{
+	margin-left: 20%;
+}
+
+.team_bios{
+	margin-left: 10%;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+h3{
+	color:#ff018a;
+}
+
+.home_content{
+	padding: 5%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #cart-text{ display: none; }
 
 @media (max-width: 65em) {
