@@ -1,31 +1,27 @@
 <?php
 include_once("includes/db_connect.php"); //include config file
 
+if(!isset($_SESSION["cartarray"])) $_SESSION["cartarray"] = array();
+
 //add product to session or create new one
 if(isset($_POST["type"]) && $_POST["type"]=='add' && $_POST["qty"]>0)
 {
+	
+	$code = $_POST["sku"];
+	
+	$newproduct = new stdClass();
+   	$newproduct -> name = $_POST['name'];
+	$newproduct -> price = $_POST['price'];
+   	$newproduct -> qty = $_POST['qty'];
+	$newproduct -> sku = $_POST['sku'];
+	
+	array_push($_SESSION["cartarray"], $newproduct);
+	
+	print_r($_SESSION["cartarray"]);
 
-	array_push($_SESSION["cartarray"], $_POST["sku"]);
-
-    }
-
-if(isset($_POST["qty"]) || isset($_POST["remove_code"]))
-{
-    //update item quantity in product session
-    if(isset($_POST["qty"]) && is_array($_POST["_qty"])){
-        foreach($_POST["qty"] as $key => $value){
-            if(is_numeric($value)){
-                $_SESSION["cart_products"][$key]["qty"] = $value;
-            }
-        }
-    }
-    //remove an item from product session
-    if(isset($_POST["remove_code"]) && is_array($_POST["remove_code"])){
-        foreach($_POST["remove_code"] as $key){
-            unset($_SESSION["cart_products"][$key]);
-        }   
-    }
+	header("location: cart.php");
 }
 
-//back to return url
-header('Location:cart.php');
+else{ 
+	return false; }
+
