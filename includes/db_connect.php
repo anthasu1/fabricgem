@@ -1,5 +1,7 @@
 <?php
 	error_reporting(0);
+	session_start();
+
 	$servername = "sulley.cah.ucf.edu";
 	$username = "dig4530c_008";
 	$password = "knights123!";

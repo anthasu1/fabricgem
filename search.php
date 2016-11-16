@@ -84,7 +84,7 @@
                 
                 <!-- Start Group Div -->
                 
-                <div class="pure-g">
+                <div class="pure-g new-row">
                 
                 <?php
                     
@@ -93,7 +93,7 @@
         
         
         <div class="product-item pure-u-1-2 pure-u-md-1-4">
-            <form method="post" action="catalog.php?action=add&code=<?php echo $row["sku"]; ?>">
+            <form method="post" action="catalog.php?action=add&sku=<?php echo $row["sku"]; ?>">
             
             <div class="product-image"><img src="<?php echo $row["img"]; ?>" height="150" width="150"></div>
                     
@@ -132,6 +132,9 @@
         else{ // if query length is less than minimum
             echo "Invalid search. Minimum characters for search is ".$min_length;
         }
+		
+	$conn->close();
+	
     ?>
     
     <!-- End Search Script -->

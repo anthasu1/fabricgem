@@ -23,7 +23,7 @@
             
             <!-- Start Group Div -->
             
-            <div class="pure-g">
+            <div class="pure-g new-row">
             
             <?php
 				
@@ -32,7 +32,7 @@
     
     
     <div class="product-item pure-u-1-2 pure-u-md-1-4">
-        <form method="post" action="catalog.php?action=add&code=<?php echo $row["sku"]; ?>">
+        <form method="post" action="cartupdate.php">
         
         <div class="product-image"><img src="<?php echo $row["img"]; ?>" height="150" width="150"></div>
                 
@@ -42,11 +42,13 @@
         
         <div class="product-stock"><?php echo "Currently in stock: ".$row["yards"] ." yards"; ?></div>
         
-        <input type="hidden" id="<?php echo "item".$row["sku"]."name";?>" value="<?php echo $row["name"];?>">
-    	
-        <input type="hidden" id="<?php echo "item".$row["sku"]."price";?>" value="<?php echo $row["price"];?>">
+        <input type="hidden" name="type" value="add" >
         
-        <div><input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" /></div>
+        <input type="hidden" name="sku" id="<?php echo "item".$row["sku"]."sku";?>" value="<?php echo $row["sku"];?>">
+        <input type="hidden" name="name" id="<?php echo "item".$row["name"]."sku";?>" value="<?php echo $row["name"];?>">    	        
+        <input type="hidden" name="price" id="<?php echo "item".$row["price"]."sku";?>" value="<?php echo $row["price"];?>">    	        
+    	        
+        <div><input type="text" name="qty" value="0" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
         </form>
 	</div>
 			

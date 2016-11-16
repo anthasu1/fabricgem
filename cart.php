@@ -60,7 +60,22 @@
     
     <div class="body-wrapper">
     
-    <?php include 'includes/catalog-gen.php'; ?>
+    <?php 
+	foreach($_SESSION['cartarray'] as $key=>$value)
+    {
+    // and print out the values
+	
+    	echo $value -> name;
+		echo $value -> price;
+		echo $value -> qty;
+		echo '<br>';
+    }
+	?>
+    
+    <form method="post" action="cartclear.php">
+    <input type="submit" value="Clear Cart" class="btnClear" />
+    </form>
+
     
     </div>
     
